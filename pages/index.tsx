@@ -1,3 +1,3 @@
-const Home = () => <div>{"currency-exchange"}</div>;
+const Home = () => <div>{'currency-exchange'}</div>
 
-export default Home;
+export default Home
