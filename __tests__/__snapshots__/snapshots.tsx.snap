@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Function Home] snapshot 1`] = `
+<div>
+  currency-exchange
+</div>
+`;

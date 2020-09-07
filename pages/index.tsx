@@ -1,3 +1,3 @@
-const Home = () => <div>{'currency-exchange'}</div>
+const Home = () => <>{'currency-exchange'}</>
 
 export default Home

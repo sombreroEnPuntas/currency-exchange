@@ -12,6 +12,7 @@ The following scripts are available:
 
 ```js
 yarn lint   // run tsc, eslint & prettier code checks
+yarn test   // run jest tests (unit & integration)
 yarn dev    // starts dev server locally, with hot reload
 yarn build  // generate PRD bundle
 yarn start  // starts PRD server
