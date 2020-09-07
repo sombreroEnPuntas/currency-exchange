@@ -21,6 +21,7 @@
   "scripts": {
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix && bash -c tsc --noEmit",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"

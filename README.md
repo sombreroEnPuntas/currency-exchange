@@ -1,5 +1,8 @@
 # currency-exchange
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/618013b1fe3b2d11d2bf/maintainability)](https://codeclimate.com/github/sombreroEnPuntas/currency-exchange/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/618013b1fe3b2d11d2bf/test_coverage)](https://codeclimate.com/github/sombreroEnPuntas/currency-exchange/test_coverage)
+
 Simple web app that allows a user to browse their "pockets" and exchange currencies.
 
 **NOTE: Requirements [here](assignment.pdf)**
@@ -25,3 +28,6 @@ There's an API service to provide exchange data: [openexchangerates.org](https:/
 ## CI
 
 - `husky` enforces commit sanity locally
+- `codeclimate` static analysis prevents accumulating technical debt
+- pushing a commit triggers tests on github workflows
+- PRs get automated reviews: comments and checks from codeclimate 🤖
