@@ -31,3 +31,4 @@ There's an API service to provide exchange data: [openexchangerates.org](https:/
 - `codeclimate` static analysis prevents accumulating technical debt
 - pushing a commit triggers tests on github workflows
 - PRs get automated reviews: comments and checks from codeclimate 🤖
+- a changelog is auto-generated after pushing to master
