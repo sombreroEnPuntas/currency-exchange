@@ -8,6 +8,8 @@ exclude_patterns:
   # glue code should be ignored:
   - 'pages/_app.tsx'
   - 'pages/_document.tsx'
+  # trivial auto-focus implementation:
+  - 'src/utils/useAutoFocus.ts',
 
 checks:
   method-lines:

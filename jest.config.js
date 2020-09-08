@@ -7,6 +7,8 @@ module.exports = {
     // glue code should be ignored:
     '!pages/_app.tsx',
     '!pages/_document.tsx',
+    // trivial auto-focus implementation:
+    '!src/utils/useAutoFocus.ts',
   ],
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
