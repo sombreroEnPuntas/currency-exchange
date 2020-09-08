@@ -43,12 +43,81 @@ exports[`ExchangeForm Renders default state 1`] = `
     <div>
       You have $25.51
     </div>
+    <pre>
+      <code>
+         
+      </code>
+    </pre>
     <button
       type="button"
     >
       Cancel
     </button>
     <button
+      type="submit"
+    >
+      Exchange
+    </button>
+  </form>
+</div>
+`;
+
+exports[`ExchangeForm Renders error state 1`] = `
+<div>
+  <form
+    id="exchange"
+    name="exchange"
+  >
+    <label
+      for="from"
+    >
+      GBP
+    </label>
+    <input
+      disabled=""
+      id="from"
+      max="58.33"
+      min="0"
+      name="from"
+      required=""
+      step="0.01"
+      type="number"
+      value=""
+    />
+    <div>
+      You have £58.33
+    </div>
+    <label
+      for="to"
+    >
+      USD
+    </label>
+    <input
+      id="to"
+      max="25.51"
+      min="0"
+      name="to"
+      readonly=""
+      step="0.01"
+      tabindex="-1"
+      type="number"
+      value=""
+    />
+    <div>
+      You have $25.51
+    </div>
+    <pre>
+      <code>
+        rawr!
+      </code>
+    </pre>
+    <button
+      type="button"
+    >
+      Cancel
+    </button>
+    <button
+      disabled=""
       type="submit"
     >
       Exchange

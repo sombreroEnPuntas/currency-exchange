@@ -7,19 +7,21 @@ import Component from '.'
 // Deps
 import { useRouter } from 'next/router'
 import usePockets from './usePockets'
+import useRates from './useRates'
 
 // Utils
 import TestProvider from '../../utils/TestProvider'
-import { pocketsMock } from '../../utils/mocks'
+import { pocketsMock, ratesDataMock } from '../../utils/mocks'
 
 // Mocks
 jest.mock('next/router')
 jest.mock('./usePockets')
+jest.mock('./useRates')
 const testFromPocket = pocketsMock.find(({ currency }) => currency === 'GBP')
 const testToPocket = pocketsMock.find(({ currency }) => currency === 'USD')
 
 // Mock data
-const setMock = ({ from, to, transaction, push }) => {
+const setMock = ({ from, to, transaction, push, ratesData }) => {
   ;(useRouter as jest.Mock).mockImplementation(() => ({
     push,
   }))
@@ -28,6 +30,9 @@ const setMock = ({ from, to, transaction, push }) => {
     to,
     transaction,
   }))
+  ;(useRates as jest.Mock).mockImplementation(() => ({
+    ratesData,
+  }))
 }
 
 const setup = ({
@@ -35,12 +40,14 @@ const setup = ({
   to = testToPocket,
   transaction = jest.fn(),
   push = jest.fn(),
+  ratesData = ratesDataMock,
 } = {}) => {
-  setMock({ from, to, transaction, push })
+  setMock({ from, to, transaction, push, ratesData })
+  const initialDataMock = ratesDataMock
 
   const utils = render(
     <TestProvider>
-      <Component />
+      <Component initialData={initialDataMock} />
     </TestProvider>
   )
 
@@ -65,10 +72,25 @@ describe('ExchangeForm', () => {
     expect(container).toMatchSnapshot()
   })
 
+  it('Renders error state', () => {
+    const { container, inputEl, convertedEl, cancelCTA, exchangeCTA } = setup({
+      ratesData: { rates: null, error: 'rawr!' },
+    })
+
+    expect(cancelCTA).toBeVisible()
+    expect(exchangeCTA).toBeVisible()
+    expect(exchangeCTA).toBeDisabled()
+    expect(inputEl).toBeVisible()
+    expect(inputEl).toBeDisabled()
+    expect(convertedEl).toBeVisible()
+
+    expect(container).toMatchSnapshot()
+  })
+
   it('Calculates exchange during change', () => {
     const { inputEl, convertedEl } = setup()
     const userInputValue = '23.50'
-    const convertedValue = 31.59
+    const convertedValue = 30.5
 
     fireEvent.change(inputEl, { target: { value: userInputValue } })
 
@@ -104,7 +126,7 @@ describe('ExchangeForm', () => {
     const transaction = jest.fn()
     const { inputEl, exchangeCTA } = setup({ transaction })
     const userInputValue = '23.50'
-    const convertedValue = '31.59'
+    const convertedValue = '30.50'
 
     fireEvent.change(inputEl, { target: { value: userInputValue } })
 

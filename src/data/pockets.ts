@@ -1,13 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { Store } from '.'
+import { Pocket, Currency } from '../types'
 import { pocketsMock } from '../utils/mocks'
-
-export type Currency = 'EUR' | 'GBP' | 'USD'
-export interface Pocket {
-  availableAmount: number
-  currency: Currency
-}
 
 type PocketsState = Pocket[]
 

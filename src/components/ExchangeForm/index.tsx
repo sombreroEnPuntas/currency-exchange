@@ -2,16 +2,20 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 
 import usePockets from './usePockets'
+import useRates from './useRates'
 import PocketExchangeInput from '../PocketInput'
 import useAutoFocus from '../../utils/useAutoFocus'
 import formatMoney from '../../utils/formatMoney'
-import { Currency } from '../../data/pockets'
+import { RatesData, Currency } from '../../types'
 
 const convert = (value: string, exchangeRate: number): string =>
   formatMoney(parseFloat(value) * exchangeRate)
 
-const ExchangeForm = () => {
-  // state
+interface Props {
+  initialData: RatesData
+}
+const ExchangeForm = ({ initialData }: Props) => {
+  // form state
   const [fromTarget, setFromTarget] = useState<Currency>('GBP')
   const [toTarget, setToTarget] = useState<Currency>('USD')
   const [fromValue, setFromValue] = useState('')
@@ -19,7 +23,10 @@ const ExchangeForm = () => {
 
   // data
   const { from, to, transaction } = usePockets({ fromTarget, toTarget })
-  const exchangeRate = 1.3444 // TODO fetch from endpoint
+  const {
+    ratesData: { rates, error },
+  } = useRates({ initialData })
+  const exchangeRate = rates ? rates[toTarget] / rates[fromTarget] : null
 
   // navigation
   const router = useRouter()
@@ -58,10 +65,11 @@ const ExchangeForm = () => {
     <form id="exchange" name="exchange" onSubmit={handleSubmit}>
       <PocketExchangeInput
         // autoFocus won't work reliably here
+        disabled={!!error}
+        innerRef={inputRef}
         name="from"
         onChange={handleInputChange}
         pocket={from}
-        innerRef={inputRef}
         required
         value={fromValue}
       />
@@ -72,10 +80,15 @@ const ExchangeForm = () => {
         tabIndex={-1}
         value={toValue}
       />
+      <pre>
+        <code>{error || ' '}</code>
+      </pre>
       <button onClick={handleCancel} type="button">
         {'Cancel'}
       </button>
-      <button type="submit">{'Exchange'}</button>
+      <button disabled={!!error} type="submit">
+        {'Exchange'}
+      </button>
     </form>
   )
 }

@@ -1,4 +1,4 @@
-import { Currency } from '../data/pockets'
+import { Currency } from '../types'
 
 const roundToTwoDecimals = (number: number) =>
   Math.round((number + Number.EPSILON) * 100) / 100

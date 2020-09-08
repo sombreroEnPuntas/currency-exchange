@@ -11,6 +11,8 @@ Simple web app that allows a user to browse their "pockets" and exchange currenc
 
 This is a [Next.js](https://nextjs.org/) project.
 
+A local env file is required to access APIs. Create one with `cp .env .env.local` and add missing keys.
+
 The following scripts are available:
 
 ```js
@@ -23,7 +25,7 @@ yarn start  // starts PRD server
 
 ## Service
 
-There's an API service to provide exchange data: [openexchangerates.org](https://openexchangerates.org).
+There's an API service (free tier) to provide exchange data: [openexchangerates.org](https://openexchangerates.org).
 
 ## CI
 
