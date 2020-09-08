@@ -6,7 +6,7 @@ import testedHook from './usePockets'
 // Utils
 import TestProvider from '../../utils/TestProvider'
 import { pocketsMock } from '../../utils/mocks'
-import { Currency } from '../../data/pockets'
+import { Currency } from '../../types'
 
 // Mocks
 const testFromPocket = pocketsMock.find(({ currency }) => currency === 'GBP')

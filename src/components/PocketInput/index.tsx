@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Pocket } from '../../data/pockets'
 import formatMoney from '../../utils/formatMoney'
+import { Pocket } from '../../types'
 
 // NOTE: Input validation is done via HTML attrs.
 // Maybe use something more flexible like `yup` IRL :)

@@ -7,8 +7,11 @@ module.exports = {
     // glue code should be ignored:
     '!pages/_app.tsx',
     '!pages/_document.tsx',
+    '!pages/api/rates.ts',
     // trivial auto-focus implementation:
     '!src/utils/useAutoFocus.ts',
+    // trivial polling implementation:
+    '!src/components/ExchangeForm/useRates.ts',
   ],
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],

@@ -1,11 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import {
-  Currency,
-  Pocket,
-  getPocketByCurrency,
-  setPocketByCurrency,
-} from '../../data/pockets'
+import { getPocketByCurrency, setPocketByCurrency } from '../../data/pockets'
+import { Currency, Pocket } from '../../types'
 
 interface Deps {
   fromTarget: Currency

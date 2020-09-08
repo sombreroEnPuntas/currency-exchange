@@ -8,8 +8,11 @@ exclude_patterns:
   # glue code should be ignored:
   - 'pages/_app.tsx'
   - 'pages/_document.tsx'
+  - 'pages/api/rates.ts'
   # trivial auto-focus implementation:
-  - 'src/utils/useAutoFocus.ts',
+  - 'src/utils/useAutoFocus.ts'
+  # trivial polling implementation:
+  - 'src/components/ExchangeForm/useRates.ts'
 
 checks:
   method-lines:
