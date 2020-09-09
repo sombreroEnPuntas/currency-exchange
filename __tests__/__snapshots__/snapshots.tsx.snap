@@ -67,6 +67,13 @@ exports[`[Function Home] snapshot 1`] = `
   <h3>
     currency-exchange
   </h3>
+  <pre>
+    <a
+      href="https://github.com/sombreroEnPuntas/currency-exchange"
+    >
+      Check the code on github!
+    </a>
+  </pre>
   <a
     href="/exchange"
   >
