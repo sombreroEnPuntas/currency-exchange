@@ -1,5 +1,7 @@
 # currency-exchange
 
+Try it out on [`Vercel`](https://currency-exchange-khaki.vercel.app)!
+
 [![Maintainability](https://api.codeclimate.com/v1/badges/618013b1fe3b2d11d2bf/maintainability)](https://codeclimate.com/github/sombreroEnPuntas/currency-exchange/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/618013b1fe3b2d11d2bf/test_coverage)](https://codeclimate.com/github/sombreroEnPuntas/currency-exchange/test_coverage)
 
@@ -34,3 +36,8 @@ There's an API service (free tier) to provide exchange data: [openexchangerates.
 - pushing a commit triggers tests on github workflows
 - PRs get automated reviews: comments and checks from codeclimate 🤖
 - a changelog is auto-generated after pushing to master
+- Merges to `master` branch and PRs will trigger deploys on `Vercel` envs
+
+## Web app
+
+There's a web app deployed as a [Vercel app](https://currency-exchange-khaki.vercel.app), matching latest master, and envs are created for new PRs.
