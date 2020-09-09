@@ -9,7 +9,7 @@ exclude_patterns:
   - 'pages/_app.tsx'
   - 'pages/_document.tsx'
   - 'pages/api/rates.ts'
-  # trivial auto-focus implementation:
+  # trivial auto focus implementation:
   - 'src/utils/useAutoFocus.ts'
   # trivial polling implementation:
   - 'src/components/ExchangeForm/useRates.ts'
