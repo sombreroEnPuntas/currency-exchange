@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/sombreroEnPuntas/currency-exchange/compare/v1.2.0...v1.3.0) (2020-09-09)
+
+
+### Features
+
+* fetch rates from API ([bb3d674](https://github.com/sombreroEnPuntas/currency-exchange/commit/bb3d674f14aba1d24506b1db2c24e6b3d08c9bd5))
+
+
+### Bug Fixes
+
+* force cc report again ([6a2614e](https://github.com/sombreroEnPuntas/currency-exchange/commit/6a2614e77f8086ba0c7b49c851948544d8362dc0))
+
 ## [1.2.0](https://github.com/sombreroEnPuntas/currency-exchange/compare/v1.1.0...v1.2.0) (2020-09-08)
 
 
