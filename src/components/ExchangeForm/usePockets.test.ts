@@ -25,8 +25,8 @@ describe('usePockets', () => {
   it(`gets initial values`, async () => {
     const { result } = setup()
 
-    expect(result.current.from).toStrictEqual(testFromPocket)
-    expect(result.current.to).toStrictEqual(testToPocket)
+    expect(result.current.fromPocket).toStrictEqual(testFromPocket)
+    expect(result.current.toPocket).toStrictEqual(testToPocket)
   })
 
   it(`processes a transaction`, async () => {
@@ -44,12 +44,12 @@ describe('usePockets', () => {
     })
 
     // removes money from GBP pocket
-    expect(result.current.from).toStrictEqual({
+    expect(result.current.fromPocket).toStrictEqual({
       availableAmount: 34.83,
       currency: 'GBP',
     })
     // adds money to USD pocket
-    expect(result.current.to).toStrictEqual({
+    expect(result.current.toPocket).toStrictEqual({
       availableAmount: 56.01,
       currency: 'USD',
     })
