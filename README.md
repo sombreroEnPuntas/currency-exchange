@@ -11,7 +11,7 @@ Simple web app that allows a user to browse their "pockets" and exchange currenc
 
 ## Scripts
 
-This is a [Next.js](https://nextjs.org/) project.
+This is a [Next.js](https://nextjs.org/) project, styled with [normalize.css](http://necolas.github.io/normalize.css/) and [terminal.css](https://terminalcss.xyz/).
 
 A local env file is required to access APIs. Create one with `cp .env .env.local` and add missing keys.
 
