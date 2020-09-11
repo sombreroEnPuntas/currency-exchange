@@ -13,6 +13,8 @@ exclude_patterns:
   - 'src/utils/useAutoFocus.ts'
   # trivial polling implementation:
   - 'src/components/ExchangeForm/useRates.ts'
+  # trivial pagination implementation:
+  - 'src/utils/usePages.ts'
 
 checks:
   method-lines:

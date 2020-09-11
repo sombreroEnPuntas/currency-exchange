@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 
 import { getPocketByCurrency, setPocketByCurrency } from '../../data/pockets'
+import { setTransaction } from '../../data/transactions'
 import { Currency, Pocket } from '../../types'
 import { roundToTwoDecimals } from '../../utils/formatMoney'
 
@@ -22,10 +23,16 @@ const usePockets = ({ fromTarget, toTarget }: Deps) => {
     currency: Currency,
     exchangeRate: number
   ) => {
+    const txFrom = { amount: parseFloat(fromValue), currency: fromTarget }
+    const txTo = {
+      amount: txFrom.amount * exchangeRate,
+      currency: currency,
+    }
+
     dispatch(
       setPocketByCurrency({
         availableAmount: roundToTwoDecimals(
-          fromPocket.availableAmount - parseFloat(fromValue)
+          fromPocket.availableAmount - txFrom.amount
         ),
         currency: fromTarget,
       })
@@ -33,9 +40,16 @@ const usePockets = ({ fromTarget, toTarget }: Deps) => {
     dispatch(
       setPocketByCurrency({
         availableAmount: roundToTwoDecimals(
-          parseFloat(fromValue) * exchangeRate + toPocket.availableAmount
+          txTo.amount + toPocket.availableAmount
         ),
         currency,
+      })
+    )
+    dispatch(
+      setTransaction({
+        from: txFrom,
+        to: txTo,
+        timestamp: Date.now(),
       })
     )
   }

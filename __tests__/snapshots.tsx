@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 // Tested Units
+import Pockets from '../pages/pockets'
 import Exchange from '../pages/exchange'
 import Index from '../pages/index'
 
@@ -24,6 +25,7 @@ const setMock = ({ pathname }) => {
 
 describe.each`
   Page        | props                             | mocks
+  ${Pockets}  | ${{ initialData: ratesDataMock }} | ${{ pathname: '/pockets' }}
   ${Exchange} | ${{ initialData: ratesDataMock }} | ${{ pathname: '/exchange' }}
   ${Index}    | ${{}}                             | ${{ pathname: '/' }}
 `('$Page.displayName', ({ Page, props, mocks }) => {

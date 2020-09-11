@@ -25,6 +25,14 @@ exports[`[Function Exchange] snapshot 1`] = `
       <ul>
         <li>
           <a
+            class="menu-item"
+            href="/pockets"
+          >
+            Pockets
+          </a>
+        </li>
+        <li>
+          <a
             class="menu-item active"
             href="/exchange"
           >
@@ -207,6 +215,14 @@ exports[`[Function Home] snapshot 1`] = `
         <li>
           <a
             class="menu-item"
+            href="/pockets"
+          >
+            Pockets
+          </a>
+        </li>
+        <li>
+          <a
+            class="menu-item"
             href="/exchange"
           >
             Exchange
@@ -246,6 +262,91 @@ exports[`[Function Home] snapshot 1`] = `
         </a>
       </p>
     </div>
+  </div>
+</div>
+`;
+
+exports[`[Function Pockets] snapshot 1`] = `
+<div>
+  <div
+    class="terminal-nav header"
+  >
+    <div
+      class="terminal-logo"
+    >
+      <div
+        class="logo terminal-prompt"
+      >
+        <a
+          class="no-style"
+          href="#"
+        >
+          currency-exchange
+        </a>
+      </div>
+    </div>
+    <nav
+      class="terminal-menu"
+    >
+      <ul>
+        <li>
+          <a
+            class="menu-item active"
+            href="/pockets"
+          >
+            Pockets
+          </a>
+        </li>
+        <li>
+          <a
+            class="menu-item"
+            href="/exchange"
+          >
+            Exchange
+          </a>
+        </li>
+        <li>
+          <a
+            class="menu-item"
+            href="/"
+          >
+            About
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div
+    class="container"
+  >
+    <section>
+      <h3>
+        Pockets
+      </h3>
+      <ul>
+        <li>
+          GBP: £58.33
+        </li>
+        <li>
+          USD: $25.51
+        </li>
+        <li>
+          EUR: €0.00
+        </li>
+      </ul>
+    </section>
+    <section>
+      <header>
+        <h2>
+          Transactions
+        </h2>
+      </header>
+      <table>
+        <caption>
+          No Activity yet.
+        </caption>
+      </table>
+    </section>
   </div>
 </div>
 `;

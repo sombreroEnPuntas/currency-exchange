@@ -19,6 +19,7 @@ input:disabled {
   left: 0;
   right: 0;
   padding: 0 1em;
+  z-index: 1;
 }
 
 .pocket-currency-option {
