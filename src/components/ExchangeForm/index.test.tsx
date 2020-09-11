@@ -21,13 +21,13 @@ const testFromPocket = pocketsMock.find(({ currency }) => currency === 'GBP')
 const testToPocket = pocketsMock.find(({ currency }) => currency === 'USD')
 
 // Mock data
-const setMock = ({ from, to, transaction, push, ratesData }) => {
+const setMock = ({ fromPocket, toPocket, transaction, push, ratesData }) => {
   ;(useRouter as jest.Mock).mockImplementation(() => ({
     push,
   }))
   ;(usePockets as jest.Mock).mockImplementation(() => ({
-    from,
-    to,
+    fromPocket,
+    toPocket,
     transaction,
   }))
   ;(useRates as jest.Mock).mockImplementation(() => ({
@@ -36,13 +36,13 @@ const setMock = ({ from, to, transaction, push, ratesData }) => {
 }
 
 const setup = ({
-  from = testFromPocket,
-  to = testToPocket,
+  fromPocket = testFromPocket,
+  toPocket = testToPocket,
   transaction = jest.fn(),
   push = jest.fn(),
   ratesData = ratesDataMock,
 } = {}) => {
-  setMock({ from, to, transaction, push, ratesData })
+  setMock({ fromPocket, toPocket, transaction, push, ratesData })
   const initialDataMock = ratesDataMock
 
   const utils = render(

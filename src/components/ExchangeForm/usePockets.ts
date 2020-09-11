@@ -11,8 +11,8 @@ interface Deps {
 const usePockets = ({ fromTarget, toTarget }: Deps) => {
   const dispatch = useDispatch()
 
-  const from: Pocket = useSelector(getPocketByCurrency(fromTarget))
-  const to: Pocket = useSelector(getPocketByCurrency(toTarget))
+  const fromPocket: Pocket = useSelector(getPocketByCurrency(fromTarget))
+  const toPocket: Pocket = useSelector(getPocketByCurrency(toTarget))
 
   // NOTE: IRL this should be a BE action, otherwise it could be abused.
   // Request should include a timestamp to ensure we give the same
@@ -25,7 +25,7 @@ const usePockets = ({ fromTarget, toTarget }: Deps) => {
     dispatch(
       setPocketByCurrency({
         availableAmount: roundToTwoDecimals(
-          from.availableAmount - parseFloat(fromValue)
+          fromPocket.availableAmount - parseFloat(fromValue)
         ),
         currency: fromTarget,
       })
@@ -33,14 +33,14 @@ const usePockets = ({ fromTarget, toTarget }: Deps) => {
     dispatch(
       setPocketByCurrency({
         availableAmount: roundToTwoDecimals(
-          parseFloat(fromValue) * exchangeRate + to.availableAmount
+          parseFloat(fromValue) * exchangeRate + toPocket.availableAmount
         ),
         currency,
       })
     )
   }
 
-  return { from, to, transaction }
+  return { fromPocket, toPocket, transaction }
 }
 
 export default usePockets

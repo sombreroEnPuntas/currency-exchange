@@ -1,66 +1,28 @@
-import React, { useState } from 'react'
-import { useRouter } from 'next/router'
+import React from 'react'
 
-import usePockets from './usePockets'
-import useRates from './useRates'
 import Message from '../Message'
 import PocketExchangeInput from '../PocketInput'
 import useAutoFocus from '../../utils/useAutoFocus'
-import formatMoney from '../../utils/formatMoney'
-import { RatesData, Currency } from '../../types'
-
-const convert = (value: string, exchangeRate: number): string =>
-  formatMoney(parseFloat(value) * exchangeRate)
+import { RatesData } from '../../types'
+import useFormState from './useFormState'
 
 interface Props {
   initialData: RatesData
 }
 const ExchangeForm = ({ initialData }: Props) => {
   // form state
-  const [fromTarget, setFromTarget] = useState<Currency>('GBP')
-  const [toTarget, setToTarget] = useState<Currency>('USD')
-  const [fromValue, setFromValue] = useState('')
-  const [toValue, setToValue] = useState('')
-
-  // data
-  const { from, to, transaction } = usePockets({ fromTarget, toTarget })
   const {
-    ratesData: { rates, error },
-  } = useRates({ initialData })
-  const exchangeRate = rates ? rates[toTarget] / rates[fromTarget] : null
-
-  // navigation
-  const router = useRouter()
-
-  // CTAs
-  const handleSelectOption = (pocketType: string) => (option: Currency) => {
-    switch (pocketType) {
-      case 'from':
-        toTarget === option && setToTarget(fromTarget)
-        setFromTarget(option)
-        break
-      case 'to':
-        fromTarget === option && setFromTarget(toTarget)
-        setToTarget(option)
-        break
-    }
-
-    setToValue(convert(fromValue, exchangeRate))
-  }
-  const handleInputChange = ({
-    target: { value },
-  }: React.ChangeEvent<HTMLInputElement>) => {
-    setFromValue(value)
-    setToValue(convert(value, exchangeRate))
-  }
-  const handleCancel = () => {
-    router.push('/')
-  }
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-
-    transaction(fromValue, toTarget, exchangeRate)
-  }
+    error,
+    fromPocket,
+    fromValue,
+    handleCancel,
+    handleInputChange,
+    handleSelectOptionFrom,
+    handleSelectOptionTo,
+    handleSubmit,
+    toPocket,
+    toValue,
+  } = useFormState({ initialData })
 
   // cuz' react rendering, we need to focus programmatically
   const inputRef = useAutoFocus()
@@ -76,16 +38,16 @@ const ExchangeForm = ({ initialData }: Props) => {
             innerRef={inputRef}
             name="from"
             onChange={handleInputChange}
-            onSelectOption={handleSelectOption('from')}
-            pocket={from}
+            onSelectOption={handleSelectOptionFrom}
+            pocket={fromPocket}
             required
             value={fromValue}
           />
           <PocketExchangeInput
             disabled={!!error}
             name="to"
-            onSelectOption={handleSelectOption('to')}
-            pocket={to}
+            onSelectOption={handleSelectOptionTo}
+            pocket={toPocket}
             readOnly
             tabIndex={-1}
             value={toValue}
