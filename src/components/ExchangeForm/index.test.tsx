@@ -51,12 +51,27 @@ const setup = ({
     </TestProvider>
   )
 
-  const inputEl = utils.getByLabelText('GBP')
-  const convertedEl = utils.getByLabelText('USD')
+  const inputEl = utils.getByLabelText('from:')
+  const [fromEUR, toEUR] = utils.getAllByText(/EUR/)
+  const [fromGBP, toGBP] = utils.getAllByText(/GBP/)
+  const [fromUSD, toUSD] = utils.getAllByText(/USD/)
+  const convertedEl = utils.getByLabelText('to:')
   const cancelCTA = utils.getByText(/Cancel/)
   const exchangeCTA = utils.getByText(/Exchange/)
 
-  return { inputEl, convertedEl, cancelCTA, exchangeCTA, ...utils }
+  return {
+    inputEl,
+    convertedEl,
+    cancelCTA,
+    exchangeCTA,
+    fromEUR,
+    fromGBP,
+    fromUSD,
+    toEUR,
+    toGBP,
+    toUSD,
+    ...utils,
+  }
 }
 
 describe('ExchangeForm', () => {
@@ -100,11 +115,11 @@ describe('ExchangeForm', () => {
   it('Validates input', () => {
     const { inputEl } = setup()
 
-    fireEvent.change(inputEl, { target: { value: '-1' } }) // min
+    fireEvent.change(inputEl, { target: { value: '-1' } }) // min invalid
 
     expect(inputEl).toBeInvalid()
 
-    fireEvent.change(inputEl, { target: { value: '58.34' } }) // max
+    fireEvent.change(inputEl, { target: { value: '58.34' } }) // max invalid
 
     expect(inputEl).toBeInvalid()
 
@@ -126,12 +141,55 @@ describe('ExchangeForm', () => {
     const transaction = jest.fn()
     const { inputEl, exchangeCTA } = setup({ transaction })
     const userInputValue = '23.50'
-    const convertedValue = '30.50'
+    const targetCurrency = 'USD'
+    const exchangeRate = 1.2976934796093424
 
     fireEvent.change(inputEl, { target: { value: userInputValue } })
 
     fireEvent.click(exchangeCTA)
 
-    expect(transaction).toHaveBeenCalledWith(userInputValue, convertedValue)
+    expect(transaction).toHaveBeenCalledWith(
+      userInputValue,
+      targetCurrency,
+      exchangeRate
+    )
+  })
+
+  it('Handles currency selection for "From:" pocket', () => {
+    const { fromEUR } = setup() // gbp to usd
+
+    expect(usePockets).toBeCalledWith({ fromTarget: 'GBP', toTarget: 'USD' })
+
+    fireEvent.click(fromEUR) // eur to usd
+
+    expect(usePockets).toBeCalledWith({ fromTarget: 'EUR', toTarget: 'USD' })
+  })
+  it('Swaps "To:" pocket when same option is selected for "From:" pocket', () => {
+    const { fromUSD } = setup() // gbp to usd
+
+    expect(usePockets).toBeCalledWith({ fromTarget: 'GBP', toTarget: 'USD' })
+
+    fireEvent.click(fromUSD) // usd to gbp
+
+    expect(usePockets).toBeCalledWith({ fromTarget: 'USD', toTarget: 'GBP' })
+  })
+
+  it('Handles currency selection for "To:" pocket', () => {
+    const { toEUR } = setup() // gbp to usd
+
+    expect(usePockets).toBeCalledWith({ fromTarget: 'GBP', toTarget: 'USD' })
+
+    fireEvent.click(toEUR) // gbp to eur
+
+    expect(usePockets).toBeCalledWith({ fromTarget: 'GBP', toTarget: 'EUR' })
+  })
+  it('Swaps "From:" pocket when same option is selected for "To:" pocket', () => {
+    const { toGBP } = setup() // gbp to usd
+
+    expect(usePockets).toBeCalledWith({ fromTarget: 'GBP', toTarget: 'USD' })
+
+    fireEvent.click(toGBP) // usd to gbp
+
+    expect(usePockets).toBeCalledWith({ fromTarget: 'USD', toTarget: 'GBP' })
   })
 })

@@ -2,82 +2,250 @@
 
 exports[`[Function Exchange] snapshot 1`] = `
 <div>
-  <form
-    id="exchange"
-    name="exchange"
+  <div
+    class="terminal-nav header"
   >
-    <label
-      for="from"
+    <div
+      class="terminal-logo"
     >
-      GBP
-    </label>
-    <input
-      id="from"
-      max="58.33"
-      min="0"
-      name="from"
-      required=""
-      step="0.01"
-      type="number"
-      value=""
-    />
-    <div>
-      You have £58.33
+      <div
+        class="logo terminal-prompt"
+      >
+        <a
+          class="no-style"
+          href="#"
+        >
+          currency-exchange
+        </a>
+      </div>
     </div>
-    <label
-      for="to"
+    <nav
+      class="terminal-menu"
     >
-      USD
-    </label>
-    <input
-      id="to"
-      max="25.51"
-      min="0"
-      name="to"
-      readonly=""
-      step="0.01"
-      tabindex="-1"
-      type="number"
-      value=""
-    />
-    <div>
-      You have $25.51
-    </div>
-    <pre>
-      <code>
+      <ul>
+        <li>
+          <a
+            class="menu-item active"
+            href="/exchange"
+          >
+            Exchange
+          </a>
+        </li>
+        <li>
+          <a
+            class="menu-item"
+            href="/"
+          >
+            About
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div
+    class="container"
+  >
+    <form
+      id="exchange"
+      name="exchange"
+    >
+      <fieldset>
+        <legend>
+          Pockets
+        </legend>
+        <div
+          class="form-group"
+        >
+          <span
+            style="display: inline-flex;"
+          >
+            <label
+              for="from"
+              style="text-transform: capitalize;"
+            >
+              from: 
+            </label>
+            <a
+              class="pocket-currency-option"
+              role="button"
+            >
+              EUR
+            </a>
+            <a
+              class="pocket-currency-option active"
+              role="button"
+            >
+              GBP
+            </a>
+            <a
+              class="pocket-currency-option"
+              role="button"
+            >
+              USD
+            </a>
+          </span>
+          <input
+            id="from"
+            inputmode="decimal"
+            max="58.33"
+            min="0"
+            name="from"
+            pattern="[\\\\d\\\\.]*"
+            required=""
+            step="0.01"
+            type="number"
+            value=""
+          />
+          <div>
+            You have £58.33
+          </div>
+        </div>
+        <div
+          class="form-group"
+        >
+          <span
+            style="display: inline-flex;"
+          >
+            <label
+              for="to"
+              style="text-transform: capitalize;"
+            >
+              to: 
+            </label>
+            <a
+              class="pocket-currency-option"
+              role="button"
+            >
+              EUR
+            </a>
+            <a
+              class="pocket-currency-option"
+              role="button"
+            >
+              GBP
+            </a>
+            <a
+              class="pocket-currency-option active"
+              role="button"
+            >
+              USD
+            </a>
+          </span>
+          <input
+            id="to"
+            inputmode="decimal"
+            max="25.51"
+            min="0"
+            name="to"
+            pattern="[\\\\d\\\\.]*"
+            readonly=""
+            step="0.01"
+            tabindex="-1"
+            type="number"
+            value=""
+          />
+          <div>
+            You have $25.51
+          </div>
+        </div>
+        <div
+          class="form-group"
+          style="display: flex; justify-content: right;"
+        >
+          <button
+            class="btn btn-ghost"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn btn-default"
+            type="submit"
+          >
+            Exchange
+          </button>
+        </div>
+      </fieldset>
+    </form>
+    <div
+      class="terminal-prompt borderless-box"
+    >
+      <span
+        class=""
+        style="white-space: pre-wrap;"
+      >
          
-      </code>
-    </pre>
-    <button
-      type="button"
-    >
-      Cancel
-    </button>
-    <button
-      type="submit"
-    >
-      Exchange
-    </button>
-  </form>
+      </span>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`[Function Home] snapshot 1`] = `
 <div>
-  <h3>
-    currency-exchange
-  </h3>
-  <pre>
-    <a
-      href="https://github.com/sombreroEnPuntas/currency-exchange"
-    >
-      Check the code on github!
-    </a>
-  </pre>
-  <a
-    href="/exchange"
+  <div
+    class="terminal-nav header"
   >
-    Exchange
-  </a>
+    <div
+      class="terminal-logo"
+    >
+      <div
+        class="logo terminal-prompt"
+      >
+        <a
+          class="no-style"
+          href="#"
+        >
+          currency-exchange
+        </a>
+      </div>
+    </div>
+    <nav
+      class="terminal-menu"
+    >
+      <ul>
+        <li>
+          <a
+            class="menu-item"
+            href="/exchange"
+          >
+            Exchange
+          </a>
+        </li>
+        <li>
+          <a
+            class="menu-item active"
+            href="/"
+          >
+            About
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div
+    class="container"
+  >
+    <div
+      class="borderless-box"
+    >
+      <p>
+        To try the exchange app, go to &gt;&gt; 
+        <a
+          href="/exchange"
+        >
+          Exchange
+        </a>
+      </p>
+      <p>
+        Check the code on &gt;&gt; 
+        <a
+          href="https://github.com/sombreroEnPuntas/currency-exchange"
+        >
+          github!
+        </a>
+      </p>
+    </div>
+  </div>
 </div>
 `;

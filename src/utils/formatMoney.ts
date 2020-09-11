@@ -1,6 +1,6 @@
 import { Currency } from '../types'
 
-const roundToTwoDecimals = (number: number) =>
+export const roundToTwoDecimals = (number: number) =>
   Math.round((number + Number.EPSILON) * 100) / 100
 
 const localFormatter = (currency?: Currency) =>
