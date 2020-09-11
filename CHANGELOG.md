@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/sombreroEnPuntas/currency-exchange/compare/v1.3.1...v1.4.0) (2020-09-11)
+
+
+### Features
+
+* implement styles & allow pocket selection ([d44eb41](https://github.com/sombreroEnPuntas/currency-exchange/commit/d44eb417874803338aa2e226ad6cf5902f1af38d))
+
+
+### Bug Fixes
+
+* **exchange form:** simplify & abstract form state logic ([625bb83](https://github.com/sombreroEnPuntas/currency-exchange/commit/625bb83f5f09997aea88c93b30e41818fb99d7fa))
+
 ### [1.3.1](https://github.com/sombreroEnPuntas/currency-exchange/compare/v1.3.0...v1.3.1) (2020-09-09)
 
 ## [1.3.0](https://github.com/sombreroEnPuntas/currency-exchange/compare/v1.2.0...v1.3.0) (2020-09-09)
