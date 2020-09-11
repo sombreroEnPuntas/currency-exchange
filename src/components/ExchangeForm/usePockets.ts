@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { getPocketByCurrency, setPocketByCurrency } from '../../data/pockets'
 import { Currency, Pocket } from '../../types'
+import { roundToTwoDecimals } from '../../utils/formatMoney'
 
 interface Deps {
   fromTarget: Currency
@@ -13,17 +14,28 @@ const usePockets = ({ fromTarget, toTarget }: Deps) => {
   const from: Pocket = useSelector(getPocketByCurrency(fromTarget))
   const to: Pocket = useSelector(getPocketByCurrency(toTarget))
 
-  const transaction = (fromValue: string, toValue: string) => {
+  // NOTE: IRL this should be a BE action, otherwise it could be abused.
+  // Request should include a timestamp to ensure we give the same
+  // exchange rate when it gets actually processed, with a reasonable threshold for validation
+  const transaction = (
+    fromValue: string,
+    currency: Currency,
+    exchangeRate: number
+  ) => {
     dispatch(
       setPocketByCurrency({
-        availableAmount: from.availableAmount - parseFloat(fromValue),
+        availableAmount: roundToTwoDecimals(
+          from.availableAmount - parseFloat(fromValue)
+        ),
         currency: fromTarget,
       })
     )
     dispatch(
       setPocketByCurrency({
-        availableAmount: parseFloat(toValue) + to.availableAmount,
-        currency: toTarget,
+        availableAmount: roundToTwoDecimals(
+          parseFloat(fromValue) * exchangeRate + to.availableAmount
+        ),
+        currency,
       })
     )
   }

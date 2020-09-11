@@ -1,14 +1,24 @@
 import Link from 'next/link'
 
+import NavBar from '../src/components/NavBar'
+
 const Home = () => (
   <>
-    <h3>{'currency-exchange'}</h3>
-    <pre>
-      <Link href="https://github.com/sombreroEnPuntas/currency-exchange">
-        {'Check the code on github!'}
-      </Link>
-    </pre>
-    <Link href="/exchange">{'Exchange'}</Link>
+    <NavBar />
+    <div className="container">
+      <div className="borderless-box">
+        <p>
+          {'To try the exchange app, go to >> '}
+          <Link href="/exchange">{'Exchange'}</Link>
+        </p>
+        <p>
+          {'Check the code on >> '}
+          <Link href="https://github.com/sombreroEnPuntas/currency-exchange">
+            {'github!'}
+          </Link>
+        </p>
+      </div>
+    </div>
   </>
 )
 

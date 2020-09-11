@@ -6,59 +6,134 @@ exports[`ExchangeForm Renders default state 1`] = `
     id="exchange"
     name="exchange"
   >
-    <label
-      for="from"
-    >
-      GBP
-    </label>
-    <input
-      id="from"
-      max="58.33"
-      min="0"
-      name="from"
-      required=""
-      step="0.01"
-      type="number"
-      value=""
-    />
-    <div>
-      You have £58.33
-    </div>
-    <label
-      for="to"
-    >
-      USD
-    </label>
-    <input
-      id="to"
-      max="25.51"
-      min="0"
-      name="to"
-      readonly=""
-      step="0.01"
-      tabindex="-1"
-      type="number"
-      value=""
-    />
-    <div>
-      You have $25.51
-    </div>
-    <pre>
-      <code>
-         
-      </code>
-    </pre>
-    <button
-      type="button"
-    >
-      Cancel
-    </button>
-    <button
-      type="submit"
-    >
-      Exchange
-    </button>
+    <fieldset>
+      <legend>
+        Pockets
+      </legend>
+      <div
+        class="form-group"
+      >
+        <span
+          style="display: inline-flex;"
+        >
+          <label
+            for="from"
+            style="text-transform: capitalize;"
+          >
+            from: 
+          </label>
+          <a
+            class="pocket-currency-option"
+            role="button"
+          >
+            EUR
+          </a>
+          <a
+            class="pocket-currency-option active"
+            role="button"
+          >
+            GBP
+          </a>
+          <a
+            class="pocket-currency-option"
+            role="button"
+          >
+            USD
+          </a>
+        </span>
+        <input
+          id="from"
+          inputmode="decimal"
+          max="58.33"
+          min="0"
+          name="from"
+          pattern="[\\\\d\\\\.]*"
+          required=""
+          step="0.01"
+          type="number"
+          value=""
+        />
+        <div>
+          You have £58.33
+        </div>
+      </div>
+      <div
+        class="form-group"
+      >
+        <span
+          style="display: inline-flex;"
+        >
+          <label
+            for="to"
+            style="text-transform: capitalize;"
+          >
+            to: 
+          </label>
+          <a
+            class="pocket-currency-option"
+            role="button"
+          >
+            EUR
+          </a>
+          <a
+            class="pocket-currency-option"
+            role="button"
+          >
+            GBP
+          </a>
+          <a
+            class="pocket-currency-option active"
+            role="button"
+          >
+            USD
+          </a>
+        </span>
+        <input
+          id="to"
+          inputmode="decimal"
+          max="25.51"
+          min="0"
+          name="to"
+          pattern="[\\\\d\\\\.]*"
+          readonly=""
+          step="0.01"
+          tabindex="-1"
+          type="number"
+          value=""
+        />
+        <div>
+          You have $25.51
+        </div>
+      </div>
+      <div
+        class="form-group"
+        style="display: flex; justify-content: right;"
+      >
+        <button
+          class="btn btn-ghost"
+          type="button"
+        >
+          Cancel
+        </button>
+        <button
+          class="btn btn-default"
+          type="submit"
+        >
+          Exchange
+        </button>
+      </div>
+    </fieldset>
   </form>
+  <div
+    class="terminal-prompt borderless-box"
+  >
+    <span
+      class=""
+      style="white-space: pre-wrap;"
+    >
+       
+    </span>
+  </div>
 </div>
 `;
 
@@ -68,60 +143,136 @@ exports[`ExchangeForm Renders error state 1`] = `
     id="exchange"
     name="exchange"
   >
-    <label
-      for="from"
-    >
-      GBP
-    </label>
-    <input
-      disabled=""
-      id="from"
-      max="58.33"
-      min="0"
-      name="from"
-      required=""
-      step="0.01"
-      type="number"
-      value=""
-    />
-    <div>
-      You have £58.33
-    </div>
-    <label
-      for="to"
-    >
-      USD
-    </label>
-    <input
-      id="to"
-      max="25.51"
-      min="0"
-      name="to"
-      readonly=""
-      step="0.01"
-      tabindex="-1"
-      type="number"
-      value=""
-    />
-    <div>
-      You have $25.51
-    </div>
-    <pre>
-      <code>
-        rawr!
-      </code>
-    </pre>
-    <button
-      type="button"
-    >
-      Cancel
-    </button>
-    <button
-      disabled=""
-      type="submit"
-    >
-      Exchange
-    </button>
+    <fieldset>
+      <legend>
+        Pockets
+      </legend>
+      <div
+        class="form-group"
+      >
+        <span
+          style="display: inline-flex;"
+        >
+          <label
+            for="from"
+            style="text-transform: capitalize;"
+          >
+            from: 
+          </label>
+          <a
+            class="pocket-currency-option"
+            role="button"
+          >
+            EUR
+          </a>
+          <a
+            class="pocket-currency-option active"
+            role="button"
+          >
+            GBP
+          </a>
+          <a
+            class="pocket-currency-option"
+            role="button"
+          >
+            USD
+          </a>
+        </span>
+        <input
+          disabled=""
+          id="from"
+          inputmode="decimal"
+          max="58.33"
+          min="0"
+          name="from"
+          pattern="[\\\\d\\\\.]*"
+          required=""
+          step="0.01"
+          type="number"
+          value=""
+        />
+        <div>
+          You have £58.33
+        </div>
+      </div>
+      <div
+        class="form-group"
+      >
+        <span
+          style="display: inline-flex;"
+        >
+          <label
+            for="to"
+            style="text-transform: capitalize;"
+          >
+            to: 
+          </label>
+          <a
+            class="pocket-currency-option"
+            role="button"
+          >
+            EUR
+          </a>
+          <a
+            class="pocket-currency-option"
+            role="button"
+          >
+            GBP
+          </a>
+          <a
+            class="pocket-currency-option active"
+            role="button"
+          >
+            USD
+          </a>
+        </span>
+        <input
+          disabled=""
+          id="to"
+          inputmode="decimal"
+          max="25.51"
+          min="0"
+          name="to"
+          pattern="[\\\\d\\\\.]*"
+          readonly=""
+          step="0.01"
+          tabindex="-1"
+          type="number"
+          value=""
+        />
+        <div>
+          You have $25.51
+        </div>
+      </div>
+      <div
+        class="form-group"
+        style="display: flex; justify-content: right;"
+      >
+        <button
+          class="btn btn-ghost"
+          type="button"
+        >
+          Cancel
+        </button>
+        <button
+          class="btn btn-default"
+          disabled=""
+          type="submit"
+        >
+          Exchange
+        </button>
+      </div>
+    </fieldset>
   </form>
+  <div
+    class="terminal-prompt borderless-box"
+  >
+    <span
+      class="terminal-alert-error"
+      style="white-space: pre-wrap;"
+    >
+      rawr!
+    </span>
+  </div>
 </div>
 `;

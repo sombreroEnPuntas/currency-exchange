@@ -15,12 +15,18 @@ const useRates = ({ initialData }: Deps) => {
       // setInterval will result on clashing requests
       // if response time is longer than 10 sec
       timeoutID = setTimeout(async () => {
-        const data: RatesData = await fetch(`api/rates`).then((res) =>
-          res.json()
-        )
+        let data: RatesData = null
+        try {
+          data = await fetch(`api/rates`).then((res) => res.json())
+        } catch (e) {
+          data = {
+            error: `${e.message}`,
+            rates: null,
+          }
+        }
         setRatesData(data)
 
-        pollEveryTenSeconds()
+        if (!data.error) pollEveryTenSeconds()
       }, 10_000)
     }
 
@@ -29,7 +35,7 @@ const useRates = ({ initialData }: Deps) => {
     return () => {
       clearTimeout(timeoutID)
     }
-  })
+  }, [])
 
   return { ratesData }
 }

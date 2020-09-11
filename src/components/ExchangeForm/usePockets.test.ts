@@ -32,10 +32,15 @@ describe('usePockets', () => {
   it(`processes a transaction`, async () => {
     const { result } = setup()
     const userInputValue = '23.50'
-    const convertedValue = '31.59'
+    const targetCurrency = 'USD'
+    const exchangeRate = 1.2976934796093424
 
     await act(async () => {
-      await result.current.transaction(userInputValue, convertedValue)
+      await result.current.transaction(
+        userInputValue,
+        targetCurrency,
+        exchangeRate
+      )
     })
 
     // removes money from GBP pocket
@@ -45,7 +50,7 @@ describe('usePockets', () => {
     })
     // adds money to USD pocket
     expect(result.current.to).toStrictEqual({
-      availableAmount: 57.1,
+      availableAmount: 56.01,
       currency: 'USD',
     })
   })
