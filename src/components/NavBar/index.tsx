@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 const pages = [
+  { href: '/pockets', label: 'Pockets' },
   { href: '/exchange', label: 'Exchange' },
   { href: '/', label: 'About' },
 ]

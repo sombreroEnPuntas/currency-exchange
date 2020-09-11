@@ -12,6 +12,8 @@ module.exports = {
     '!src/utils/useAutoFocus.ts',
     // trivial polling implementation:
     '!src/components/ExchangeForm/useRates.ts',
+    // trivial pagination implementation:
+    '!src/utils/usePages.ts',
   ],
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],

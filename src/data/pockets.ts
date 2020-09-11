@@ -23,6 +23,7 @@ const { actions, reducer } = createSlice({
 
 export const { setPocketByCurrency } = actions
 
+export const getPockets = (state: Store) => state.pockets
 export const getPocketByCurrency = (currency: Currency) => (state: Store) =>
   state.pockets.find((pocket) => pocket.currency === currency)
 
