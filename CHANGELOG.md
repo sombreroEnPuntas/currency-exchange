@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/sombreroEnPuntas/currency-exchange/compare/v1.4.0...v1.5.0) (2020-09-11)
+
+
+### Features
+
+* implement pockets view ([19ea29a](https://github.com/sombreroEnPuntas/currency-exchange/commit/19ea29aa3059cf0fed6788bacac639ebeee8530f))
+
 ## [1.4.0](https://github.com/sombreroEnPuntas/currency-exchange/compare/v1.3.1...v1.4.0) (2020-09-11)
 
 
